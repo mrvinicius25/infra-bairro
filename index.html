@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0b1418" />
+    <title>Entrar · InfraBairro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="js/icons.js" defer></script>
+    <script src="js/data.js" defer></script>
+    <script src="js/app.js" defer></script>
+  </head>
+  <body>
+    <main class="app login">
+      <header class="login__brand">
+        <span class="login__logo" data-icon="map-pin"></span>
+        <h1 class="login__title">InfraBairro</h1>
+        <p class="login__subtitle">Registre e acompanhe problemas de infraestrutura do seu bairro.</p>
+      </header>
+
+      <!-- Mock login: there is no backend yet, so submitting just opens the map.
+           The inputs have no "name" attribute on purpose, so the e-mail is not appended to the URL. -->
+      <form class="login__form" action="map.html">
+        <div class="field">
+          <label class="field__label" for="email">E-mail</label>
+          <div class="field__control">
+            <span class="field__icon" data-icon="mail"></span>
+            <input class="field__input" id="email" type="email" autocomplete="email" placeholder="voce@email.com" required />
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="password">Senha</label>
+          <div class="field__control">
+            <span class="field__icon" data-icon="lock"></span>
+            <input class="field__input" id="password" type="password" autocomplete="current-password" placeholder="Sua senha" required />
+          </div>
+        </div>
+
+        <button class="btn btn--primary" type="submit">Entrar</button>
+
+        <div class="login__links">
+          <a href="#" data-coming-soon>Esqueci minha senha</a>
+          <a href="#" data-coming-soon>Criar conta</a>
+        </div>
+      </form>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0f766e" />
+    <title>Registrar ocorrência · Detalhes · InfraBairro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="js/icons.js" defer></script>
+    <script src="js/data.js" defer></script>
+    <script src="js/app.js" defer></script>
+    <script src="js/new-report-details.js" defer></script>
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <!-- history.back() would break if the user opened this page directly, so link to step 1 -->
+        <a class="icon-button" href="new-report-location.html" aria-label="Voltar"><span data-icon="chevron-left"></span></a>
+        <h1 class="topbar__title">Registrar ocorrência</h1>
+      </header>
+
+      <div class="stepper-wrap">
+        <ol class="stepper" aria-label="Etapas do registro">
+          <li class="stepper__item is-done"><span class="stepper__dot"><span data-icon="check"></span></span>Localização</li>
+          <li class="stepper__item is-current" aria-current="step"><span class="stepper__dot">2</span>Detalhes</li>
+          <li class="stepper__item"><span class="stepper__dot">3</span>Conclusão</li>
+        </ol>
+      </div>
+
+      <form class="wizard" id="details-form">
+        <div class="wizard__content">
+          <div>
+            <h2 class="section-title">Conte mais detalhes</h2>
+            <p class="section-subtitle">Uma foto e uma boa descrição ajudam a resolver mais rápido.</p>
+          </div>
+
+          <div class="summary" id="summary"></div>
+
+          <section>
+            <h3 class="group-title">Foto do problema</h3>
+            <label class="upload" id="upload-box">
+              <input class="sr-only" id="photo-input" type="file" accept="image/*" />
+              <span data-icon="camera"></span>
+              <strong>Adicionar foto</strong>
+              <small>JPG ou PNG, até 5 MB</small>
+            </label>
+            <div class="photo-preview" id="photo-preview" hidden>
+              <img id="photo-image" alt="Pré-visualização da foto anexada" />
+              <button class="photo-preview__remove" id="photo-remove" type="button" aria-label="Remover foto">
+                <span data-icon="x"></span>
+              </button>
+            </div>
+          </section>
+
+          <section>
+            <label class="group-title" for="description">Descreva o problema</label>
+            <textarea
+              class="textarea"
+              id="description"
+              maxlength="500"
+              minlength="10"
+              required
+              placeholder="Ex.: O poste em frente ao número 123 está apagado há uma semana."
+            ></textarea>
+            <p class="counter" id="counter" aria-live="off">0/500</p>
+          </section>
+        </div>
+
+        <div class="wizard__footer">
+          <button class="btn btn--primary" type="submit">Finalizar</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,330 @@
+/* Reusable components — the CSS counterparts of the Figma design system:
+   Primary Button, Top Bar, Status Chip, Progress Stepper, Bottom Nav Bar. */
+
+/* ---------- Primary Button ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  width: 100%;
+  height: 52px;
+  padding: 0 var(--space-5);
+  border: 0;
+  border-radius: var(--radius-lg);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.btn--primary {
+  background: var(--primary);
+  color: var(--on-primary);
+}
+
+.btn--primary:hover {
+  background: var(--primary-hover);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.icon-button {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--text);
+}
+
+.icon-button:hover {
+  background: var(--bg);
+}
+
+/* ---------- Top Bar ---------- */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  height: 56px;
+  padding: 0 var(--space-3);
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.topbar__title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* ---------- Status Chip ---------- */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.chip::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.chip--registered {
+  background: var(--status-registered-bg);
+  color: var(--status-registered-text);
+}
+
+.chip--in-progress {
+  background: var(--status-in-progress-bg);
+  color: var(--status-in-progress-text);
+}
+
+.chip--solved {
+  background: var(--status-solved-bg);
+  color: var(--status-solved-text);
+}
+
+/* Toggle chip used to filter the map by category */
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: var(--surface);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.filter-chip .icon {
+  width: 16px;
+  height: 16px;
+  color: var(--color);
+}
+
+.filter-chip[aria-pressed='true'] {
+  border-color: var(--primary);
+  background: var(--primary-tint);
+  color: var(--primary);
+}
+
+/* Category icon on a soft tinted square; --color is set inline per category */
+.category-tile {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--color) 14%, var(--surface));
+  color: var(--color);
+}
+
+/* ---------- Progress Stepper ---------- */
+.stepper {
+  display: flex;
+}
+
+.stepper__item {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+/* Connector line: runs from the previous dot's center to this dot's center */
+.stepper__item + .stepper__item::before {
+  content: '';
+  position: absolute;
+  top: 13px;
+  right: 50%;
+  width: 100%;
+  height: 2px;
+  background: var(--border);
+}
+
+.stepper__item.is-done + .stepper__item::before {
+  background: var(--primary);
+}
+
+.stepper__dot {
+  position: relative; /* stacks above the connector lines */
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: 2px solid var(--border);
+  border-radius: 50%;
+  background: var(--surface);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.stepper__dot .icon {
+  width: 16px;
+  height: 16px;
+}
+
+.stepper__item.is-current,
+.stepper__item.is-done {
+  color: var(--text);
+}
+
+.stepper__item.is-current .stepper__dot,
+.stepper__item.is-done .stepper__dot {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: var(--on-primary);
+}
+
+/* ---------- Bottom Nav Bar ---------- */
+.bottom-nav {
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  height: calc(var(--nav-h) + env(safe-area-inset-bottom, 0px));
+  padding-bottom: env(safe-area-inset-bottom, 0px); /* keeps it clear of the iPhone home bar */
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+}
+
+.bottom-nav__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.bottom-nav__item .icon {
+  width: 22px;
+  height: 22px;
+}
+
+.bottom-nav__item[aria-current='page'] {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* ---------- Form fields ---------- */
+.field {
+  display: grid;
+  gap: 6px;
+}
+
+.field__label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.field__control {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.field__icon {
+  position: absolute;
+  left: 14px;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.field__icon .icon {
+  width: 20px;
+  height: 20px;
+}
+
+.field__input {
+  width: 100%;
+  height: 52px;
+  padding: 0 14px 0 44px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+}
+
+.field__input::placeholder {
+  color: var(--text-muted);
+}
+
+.field__input:focus-visible {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 25%, transparent);
+}
+
+/* ---------- Floating action button ---------- */
+.fab {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: var(--on-primary);
+  box-shadow: 0 6px 16px rgb(15 23 42 / 25%);
+}
+
+.fab:hover {
+  background: var(--primary-hover);
+}
+
+/* ---------- Toast ---------- */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: calc(var(--nav-h) + 24px);
+  z-index: 50;
+  max-width: calc(100vw - 32px);
+  padding: 12px 18px;
+  border-radius: var(--radius-full);
+  background: #0f172a;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0;
+  transform: translate(-50%, 8px);
+  pointer-events: none;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.toast.is-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toast {
+    transition: none;
+  }
+}

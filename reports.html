@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0f766e" />
+    <title>Minhas ocorrências · InfraBairro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="js/icons.js" defer></script>
+    <script src="js/data.js" defer></script>
+    <script src="js/app.js" defer></script>
+    <script src="js/reports.js" defer></script>
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <a class="icon-button" href="map.html" aria-label="Voltar"><span data-icon="chevron-left"></span></a>
+        <h1 class="topbar__title">Minhas ocorrências</h1>
+      </header>
+
+      <div class="tabs" role="tablist" aria-label="Filtrar por situação">
+        <button class="tabs__tab" type="button" role="tab" aria-selected="true" data-filter="all">Todas</button>
+        <button class="tabs__tab" type="button" role="tab" aria-selected="false" data-filter="in-progress">Em andamento</button>
+        <button class="tabs__tab" type="button" role="tab" aria-selected="false" data-filter="solved">Solucionadas</button>
+      </div>
+
+      <main class="page-content">
+        <ul class="report-list" id="report-list" role="tabpanel"></ul>
+      </main>
+
+      <div class="fab-wrap">
+        <a class="fab" href="new-report-location.html" aria-label="Registrar ocorrência">
+          <span data-icon="plus"></span>
+        </a>
+      </div>
+
+      <nav class="bottom-nav" aria-label="Navegação principal">
+        <a class="bottom-nav__item" href="map.html"><span data-icon="home"></span>Início</a>
+        <a class="bottom-nav__item" href="reports.html" aria-current="page"><span data-icon="clipboard"></span>Ocorrências</a>
+        <a class="bottom-nav__item" href="#" data-coming-soon><span data-icon="map"></span>Mapa</a>
+        <a class="bottom-nav__item" href="#" data-coming-soon><span data-icon="user"></span>Perfil</a>
+      </nav>
+    </div>
+  </body>
+</html>

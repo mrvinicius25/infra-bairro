@@ -1,0 +1,113 @@
+/* Reset + app shell */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--text);
+  background: var(--backdrop);
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Beats any `display` set by a component class, so `el.hidden = true` always works */
+[hidden] {
+  display: none !important;
+}
+
+/* Visually hidden but still focusable/readable by screen readers (used for radios, file inputs, labels) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* The "mobile format": a single centered column. On real phones it fills the screen. */
+.app {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: var(--app-max);
+  min-height: 100dvh;
+  margin: 0 auto;
+  background: var(--bg);
+}
+
+@media (min-width: 481px) {
+  .app {
+    box-shadow: 0 0 0 1px var(--border), 0 20px 50px rgb(15 23 42 / 12%);
+  }
+}
+
+/* SVG icons are injected by js/icons.js into <span data-icon="..."> placeholders.
+   :where() gives this rule zero specificity so component classes can override the display. */
+:where(span[data-icon]) {
+  display: inline-flex;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0f766e" />
+    <title>Início · InfraBairro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="js/icons.js" defer></script>
+    <script src="js/data.js" defer></script>
+    <script src="js/app.js" defer></script>
+    <script src="js/map.js" defer></script>
+  </head>
+  <body>
+    <div class="app">
+      <header class="map-header">
+        <button class="icon-button" type="button" aria-label="Abrir menu" data-coming-soon>
+          <span data-icon="menu"></span>
+        </button>
+        <div class="brand"><span data-icon="map-pin"></span>InfraBairro</div>
+        <button class="icon-button" type="button" aria-label="Perfil" data-coming-soon>
+          <span data-icon="user"></span>
+        </button>
+      </header>
+
+      <div class="map-search">
+        <label class="sr-only" for="search">Buscar ocorrências</label>
+        <div class="field__control">
+          <span class="field__icon" data-icon="search"></span>
+          <input class="field__input" id="search" type="search" placeholder="Buscar rua, bairro ou problema" />
+        </div>
+      </div>
+
+      <main class="map-area">
+        <div class="fake-map" role="img" aria-label="Mapa ilustrativo com as ocorrências registradas"></div>
+        <div id="pins"></div>
+
+        <a class="fab fab--map" href="new-report-location.html" aria-label="Registrar ocorrência">
+          <span data-icon="plus"></span>
+        </a>
+
+        <section class="sheet" aria-labelledby="sheet-title">
+          <div class="sheet__handle"></div>
+          <h2 class="sheet__title" id="sheet-title">Filtrar por categoria</h2>
+          <div class="sheet__chips" id="category-chips"></div>
+          <div class="legend" aria-label="Legenda dos pinos">
+            <span class="legend__item" style="--color: var(--status-registered)">Registrado</span>
+            <span class="legend__item" style="--color: var(--status-in-progress)">Em andamento</span>
+            <span class="legend__item" style="--color: var(--status-solved)">Solucionado</span>
+          </div>
+        </section>
+      </main>
+
+      <nav class="bottom-nav" aria-label="Navegação principal">
+        <a class="bottom-nav__item" href="map.html" aria-current="page"><span data-icon="home"></span>Início</a>
+        <a class="bottom-nav__item" href="reports.html"><span data-icon="clipboard"></span>Ocorrências</a>
+        <a class="bottom-nav__item" href="#" data-coming-soon><span data-icon="map"></span>Mapa</a>
+        <a class="bottom-nav__item" href="#" data-coming-soon><span data-icon="user"></span>Perfil</a>
+      </nav>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" preserveAspectRatio="xMidYMid slice">
+  <rect width="400" height="600" fill="#e9eeef"/>
+  <!-- park and river -->
+  <rect x="250" y="40" width="120" height="90" rx="10" fill="#cde8d0"/>
+  <rect x="20" y="330" width="90" height="60" rx="10" fill="#d6ecd8"/>
+  <path d="M-10 470 C 100 430, 200 520, 410 460 L410 520 C 200 580, 100 490, -10 530 Z" fill="#bfddf0"/>
+  <!-- streets -->
+  <g stroke="#ffffff" stroke-linecap="round" fill="none">
+    <path d="M-10 120 L410 160" stroke-width="14"/>
+    <path d="M-10 300 L410 280" stroke-width="18"/>
+    <path d="M90 -10 L120 610" stroke-width="14"/>
+    <path d="M270 -10 L240 610" stroke-width="16"/>
+    <path d="M-10 210 L410 230" stroke-width="6"/>
+    <path d="M180 -10 L190 610" stroke-width="6"/>
+    <path d="M-10 390 L410 380" stroke-width="6"/>
+  </g>
+</svg>

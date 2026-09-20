@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0f766e" />
+    <title>Registrar ocorrência · Localização · InfraBairro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="js/icons.js" defer></script>
+    <script src="js/data.js" defer></script>
+    <script src="js/app.js" defer></script>
+    <script src="js/new-report-location.js" defer></script>
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <a class="icon-button" href="map.html" aria-label="Voltar"><span data-icon="chevron-left"></span></a>
+        <h1 class="topbar__title">Registrar ocorrência</h1>
+      </header>
+
+      <div class="stepper-wrap">
+        <ol class="stepper" aria-label="Etapas do registro">
+          <li class="stepper__item is-current" aria-current="step"><span class="stepper__dot">1</span>Localização</li>
+          <li class="stepper__item"><span class="stepper__dot">2</span>Detalhes</li>
+          <li class="stepper__item"><span class="stepper__dot">3</span>Conclusão</li>
+        </ol>
+      </div>
+
+      <!-- method="get": the browser itself carries the chosen category to the next page as
+           ?category=... and blocks submitting without one (the radios are `required`). -->
+      <form class="wizard" action="new-report-details.html" method="get">
+        <div class="wizard__content">
+          <div>
+            <h2 class="section-title">Onde está o problema?</h2>
+            <p class="section-subtitle">Confirme o local no mapa e escolha o tipo de problema.</p>
+          </div>
+
+          <div class="location-map">
+            <span class="location-map__label">Rua das Acácias, 123</span>
+            <span class="pin"></span>
+            <button class="icon-button location-map__locate" type="button" aria-label="Usar minha localização" data-coming-soon>
+              <span data-icon="crosshair"></span>
+            </button>
+          </div>
+
+          <fieldset class="fieldset">
+            <legend class="group-title">Categoria</legend>
+            <div class="category-grid" id="category-grid"></div>
+          </fieldset>
+
+          <div class="location-card">
+            <span class="location-card__icon" data-icon="map-pin"></span>
+            <div>
+              <small>Local selecionado</small>
+              <strong>Rua das Acácias, 123 - Compensa - Manaus/AM</strong>
+            </div>
+          </div>
+          <input type="hidden" name="address" value="Rua das Acácias, 123 - Compensa - Manaus/AM" />
+        </div>
+
+        <div class="wizard__footer">
+          <button class="btn btn--primary" type="submit">Próximo</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
